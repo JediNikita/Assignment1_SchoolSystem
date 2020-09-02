@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+.customDiv{
+	text-transform: capitalize;
+	margin: 3px;
+	background-color: teal;
+	text-align: center;
+	font-size: large;
+}
+
