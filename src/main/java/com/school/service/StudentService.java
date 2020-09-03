@@ -36,7 +36,7 @@ public class StudentService implements IStudentService {
 	}
 	
 	@Override
-	public void update(String whatUpdate, String value) {
-		sr.update(whatUpdate, value);
+	public void update(String who, String whatUpdate, String value) {
+		sr.update(who, whatUpdate, value);
 	}
 }

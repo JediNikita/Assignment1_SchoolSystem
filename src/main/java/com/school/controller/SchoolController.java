@@ -103,12 +103,8 @@ public class SchoolController {
 
 
 	@RequestMapping(value = "/updateStudent", method = RequestMethod.GET)
-	public ModelAndView getUpdateStudent(@RequestParam Map<String, String> params,HttpServletRequest request) {
-		List<String> listOfUpdate=(List)params.values();
-		String whatUpdate= listOfUpdate.get(0);
-		String value= listOfUpdate.get(1);
+	public ModelAndView getUpdateStudent(HttpServletRequest request) {
 		
-		studentService.update(whatUpdate, value);
 		mv.setViewName("update");
 		mv.addObject("loggedInUser", request.getSession().getAttribute("loggedInUser"));
 		return mv;
@@ -116,7 +112,11 @@ public class SchoolController {
 	}
 
 	@RequestMapping(value = "/updateStudent", method = RequestMethod.POST)
-	public ModelAndView updateStudent(HttpServletRequest request) {
+	public ModelAndView updateStudent(@RequestParam Map<String, String> params,HttpServletRequest request) {
+		String who=  (String) request.getSession().getAttribute("loggedInUser");
+		String whatUpdate= params.get("what");
+		String value= params.get(whatUpdate);
+		studentService.update(who,whatUpdate, value);
 		mv.setViewName("update");
 		mv.addObject("loggedInUser", request.getSession().getAttribute("loggedInUser"));
 		return mv;

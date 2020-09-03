@@ -34,7 +34,7 @@ $('#whatUpdate').on("change", function() {
 </head>
 <body>
 	<div class="container">
-		<form method="post" action="${pageContext.request.contextPath}/update">
+		<form method="post" action="${pageContext.request.contextPath}/updateStudent">
 			<div class="form-group">
 				<label for="what">What do you want to update?</label> <select
 					name="what" id="whatUpdate">
